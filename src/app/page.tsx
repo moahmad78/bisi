@@ -198,35 +198,38 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          SECTION 1.5: GLOBAL STATISTICS MARQUEE (COMPACT HORIZONTAL)
+          SECTION 1.5: INDUSTRIAL STATISTICS MARQUEE (RECONSTRUCTED)
       ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative w-full z-20 py-3 md:py-5 overflow-hidden bg-transparent">
-        <div className="absolute inset-0 border-y border-white/10" />
+      <section className="relative w-full z-20 py-4 md:py-6 overflow-hidden bg-transparent border-y border-white/5">
         <div className="flex w-max animate-marquee relative z-10">
-          {[...Array(4)].map((_, dupIdx) => (
+          {[...Array(3)].map((_, dupIdx) => (
             <div key={dupIdx} className="flex flex-nowrap items-center">
               {[
-                { val: "100%", label: "Customer Focus", icon: "/assets/images/stats-customer.png" },
-                { val: "22+", label: "Years of Excellence", icon: "/assets/images/stats-years.png" },
-                { val: "18", label: "Production Machines", icon: "/assets/images/stats-machine.png" },
-                { val: "ISO", label: "9001:2015 Certified", icon: "/assets/images/stats-iso.png" },
-                { val: "Labs", label: "Advanced Quality Hub", icon: "/assets/images/stats-lab.png" }
+                { val: "22+", label: "YEARS OF EXCELLENCE", icon: "/assets/images/stats-years.png" },
+                { val: "18+", label: "PRODUCTION MACHINES", icon: "/assets/images/stats-machine.png" },
+                { val: null, label: "ISO 9001:2015 CERTIFIED", icon: "/assets/images/stats-iso.png" },
+                { val: "500+", label: "TRUSTED CLIENTS", icon: "/assets/images/stats-customer.png" },
+                { val: "100%", label: "QUALITY LABS", icon: "/assets/images/stats-lab.png" }
               ].map((stat, i) => (
-                <div key={i} className="flex flex-row items-center gap-x-3 pr-12 md:pr-24 pl-6 group transition-all duration-300">
-                  <div className="relative h-8 md:h-12 w-auto transition-transform duration-500 group-hover:scale-110">
+                <div key={i} className="flex flex-row items-center gap-x-5 px-10 md:px-20 group">
+                  {/* Icon */}
+                  <div className="relative h-10 md:h-12 w-auto transition-transform duration-500 group-hover:scale-105">
                     <NextImage
                       src={stat.icon}
                       alt={stat.label}
                       width={48}
                       height={48}
-                      className="h-full w-auto object-contain brightness-0 invert transition-opacity"
+                      className="h-full w-auto object-contain grayscale brightness-[2] transition-opacity"
                     />
                   </div>
-                  <div className="flex flex-row items-baseline gap-x-2">
-                    <span className="text-xl md:text-3xl font-bold text-white tracking-tight leading-none">
-                      <StatCounter value={stat.val} />
-                    </span>
-                    <span className="text-[9px] md:text-xs text-neutral-100 font-extrabold tracking-[0.1em] uppercase whitespace-nowrap">
+                  {/* Text Block */}
+                  <div className="flex flex-col justify-center">
+                    {stat.val && (
+                      <span className="text-xl md:text-3xl font-bold text-white tracking-tight leading-none mb-1">
+                        <StatCounter value={stat.val} />
+                      </span>
+                    )}
+                    <span className={`text-[8px] md:text-[10px] font-extrabold tracking-[0.15em] uppercase whitespace-nowrap ${stat.val ? 'text-neutral-400' : 'text-white text-xs md:text-sm'}`}>
                       {stat.label}
                     </span>
                   </div>
@@ -376,7 +379,7 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════════════
           SECTION 4: RAW MATERIAL PARTNERS (INFINITE MARQUEE)
       ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative py-12 md:py-20">
+      <section className="relative pt-8 md:pt-10 pb-8 md:pb-10">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-zinc-950 opacity-90" />
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #B38B59 0.5px, transparent 0)', backgroundSize: '30px 30px' }} />
@@ -385,12 +388,12 @@ export default function Home() {
         <div className="container mx-auto px-6 mb-10 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-yellow-500 text-xs tracking-widest font-semibold mb-2 uppercase">Raw Material Strength</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-8">We source only from India's most trusted steel mills.</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">We source only from India's most trusted steel mills.</h2>
           </div>
         </div>
 
         <div className="relative z-10 w-full overflow-hidden">
-          <div className="flex w-max animate-marquee py-8 border-y border-white/5">
+          <div className="flex w-max animate-marquee py-4 border-y border-white/5">
             {[...Array(4)].map((_, dupIdx) => (
               rawMaterialPartners.map((partner, idx) => (
                 <div key={`${dupIdx}-${idx}`} className="flex items-center px-4 md:px-8">
@@ -410,6 +413,6 @@ export default function Home() {
         </div>
       </section>
 
-    </div >
+    </div>
   );
 }

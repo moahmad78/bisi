@@ -45,16 +45,17 @@ export default function ManufacturingPage() {
   ];
 
   return (
-    <BlurredBackgroundSection 
-      backgroundImageUrl="https://pushpasteel.com/wp-content/uploads/2024/12/pushpa-blog-1.png"
+    <BlurredBackgroundSection
+      backgroundImageUrl="/assets/images/bg-manufacturing.png"
       overlayOpacity={0.7}
       blurAmount="blur-sm"
+      priority
     >
-      <div className="pt-36 pb-24 md:pb-32 min-h-screen bg-transparent font-sans selection:bg-[#B38B59] selection:text-white">
+      <div className="pt-28 pb-12 md:pt-36 md:pb-24 min-h-screen bg-transparent font-sans selection:bg-[#B38B59] selection:text-white">
         <div className="container mx-auto px-6 lg:px-12">
-          
+
           {/* ── Header ── */}
-          <motion.div initial="hidden" animate="show" variants={staggerContainer} className="max-w-4xl mb-16 md:mb-24">
+          <motion.div initial="hidden" animate="show" variants={staggerContainer} className="max-w-4xl mb-8 md:mb-16">
             <motion.div variants={itemReveal} className="mb-6 flex flex-wrap gap-3">
               <span className="inline-flex items-center px-4 py-1.5 rounded-full border border-[#B38B59] text-[#B38B59] text-xs font-medium tracking-widest uppercase bg-[#B38B59]/10">
                 Manufacturing & Quality
@@ -74,31 +75,31 @@ export default function ManufacturingPage() {
           {/* ═══════════════════════════════════════
               QUALITY POLICY: 8 OBJECTIVES
           ═══════════════════════════════════════ */}
-          <section className="mb-16 md:mb-24">
-             <div className="bg-white/5 backdrop-blur-md border border-[#B38B59]/40 rounded-xl p-8 md:p-12 lg:p-14 shadow-2xl relative overflow-hidden">
-               <div className="absolute top-0 right-0 w-[300px] md:w-[400px] h-[300px] md:h-[400px] bg-[#B38B59]/5 rounded-full blur-[100px] pointer-events-none" />
-               <h2 className="text-2xl md:text-3xl font-semibold text-white mb-8 md:mb-10 flex items-center gap-4 relative z-10 border-b border-white/10 pb-6">
-                  <Activity className="w-7 h-7 text-[#B38B59] flex-shrink-0" /> ISO 9001:2015 Quality Objectives
-               </h2>
-               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 relative z-10">
-                  {qualityObjectives.map((obj, i) => (
-                    <div key={i} className="bg-black/40 backdrop-blur-md border border-[#B38B59]/20 rounded-xl p-5 md:p-6 shadow-md hover:border-[#B38B59]/50 transition-colors">
-                       <span className="text-[#B38B59] text-xl md:text-2xl font-bold block mb-2 opacity-50">0{i+1}</span>
-                       <p className="text-white font-medium tracking-wide text-sm">{obj}</p>
-                    </div>
-                  ))}
-               </div>
-             </div>
+          <section className="mb-8 md:mb-16">
+            <div className="bg-white/5 backdrop-blur-md border border-[#B38B59]/40 rounded-xl p-8 md:p-12 lg:p-14 shadow-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-[300px] md:w-[400px] h-[300px] md:h-[400px] bg-[#B38B59]/5 rounded-full blur-[100px] pointer-events-none" />
+              <h2 className="text-2xl md:text-3xl font-semibold text-white mb-8 md:mb-10 flex items-center gap-4 relative z-10 border-b border-white/10 pb-6">
+                <Activity className="w-7 h-7 text-[#B38B59] flex-shrink-0" /> ISO 9001:2015 Quality Objectives
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 relative z-10">
+                {qualityObjectives.map((obj, i) => (
+                  <div key={i} className="bg-black/40 backdrop-blur-md border border-[#B38B59]/20 rounded-xl p-5 md:p-6 shadow-md hover:border-[#B38B59]/50 transition-colors">
+                    <span className="text-[#B38B59] text-xl md:text-2xl font-bold block mb-2 opacity-50">0{i + 1}</span>
+                    <p className="text-white font-medium tracking-wide text-sm">{obj}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </section>
 
           {/* ═══════════════════════════════════════
               MACHINERY CAPACITY TABLE (18 items)
           ═══════════════════════════════════════ */}
-          <section className="mb-16 md:mb-24">
+          <section className="mb-8 md:mb-16">
             <h2 className="text-2xl md:text-3xl font-semibold text-white mb-8 flex items-center gap-4 border-b border-white/10 pb-6">
               <Cog className="w-7 h-7 text-[#B38B59] flex-shrink-0" /> Machinery Capacity (18 Machines Total)
             </h2>
-            
+
             <div className="bg-white/5 backdrop-blur-md border border-[#B38B59]/40 rounded-xl overflow-hidden shadow-2xl">
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse min-w-[400px]">
@@ -164,13 +165,13 @@ export default function ManufacturingPage() {
           <section>
             <div className="bg-white/5 backdrop-blur-md border border-[#B38B59]/40 rounded-xl p-8 md:p-12 shadow-2xl space-y-6">
               <h2 className="text-2xl md:text-3xl font-semibold text-white border-b border-white/10 pb-6">Testing Tie-ups & Partnerships</h2>
-              
+
               <div className="bg-black/80 border-l-2 border-[#B38B59] p-6 md:p-8 rounded-r-sm border-y border-r border-white/5">
                 <p className="text-slate-300 font-medium leading-relaxed text-sm md:text-base">
                   We have an understanding with material testing labs accredited with <strong className="text-white border-b border-[#B38B59]">NABL</strong> for cross-testing of materials, ensuring full traceability and metallurgical compliance.
                 </p>
               </div>
-              
+
               <div className="bg-black/80 border-l-2 border-[#B38B59] p-6 md:p-8 rounded-r-sm border-y border-r border-white/5">
                 <p className="text-slate-300 font-medium leading-relaxed text-sm md:text-base">
                   We also tie-up with <strong className="text-white">NDT people for magnetic particle test</strong> as required by our customers' specific quality parameters for detecting surface and sub-surface discontinuities.

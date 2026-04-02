@@ -92,16 +92,16 @@ export default function ContactPage() {
     "w-full bg-black border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white font-medium focus:outline-none focus:border-[#B38B59] transition-colors text-sm md:text-base placeholder:text-white/25";
 
   return (
-    <BlurredBackgroundSection 
-      backgroundImageUrl="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1920&auto=format&fit=crop"
+    <BlurredBackgroundSection
+      backgroundImageUrl="/assets/images/bg-contact.jpg"
       blurAmount="blur-md"
       overlayOpacity={0.7}
     >
-      <div className="pt-36 pb-24 md:pb-32 min-h-screen bg-transparent font-sans selection:bg-[#B38B59] selection:text-white">
+      <div className="pt-28 pb-12 md:pt-36 md:pb-24 min-h-screen bg-transparent font-sans selection:bg-[#B38B59] selection:text-white">
         <div className="container mx-auto px-6 lg:px-12">
-          
+
           {/* ── Header ── */}
-          <motion.div initial="hidden" animate="show" variants={staggerContainer} className="max-w-4xl mb-16 md:mb-24">
+          <motion.div initial="hidden" animate="show" variants={staggerContainer} className="max-w-4xl mb-8 md:mb-16">
             <motion.div variants={itemReveal} className="mb-6">
               <span className="inline-flex items-center px-4 py-1.5 rounded-full border border-[#B38B59] text-[#B38B59] text-xs font-medium tracking-widest uppercase bg-[#B38B59]/10">
                 Contact / Enquiry
@@ -115,54 +115,54 @@ export default function ContactPage() {
             </motion.p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 lg:gap-16">
-            
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
+
             {/* ── Contact Details ── */}
             <div className="lg:col-span-1 space-y-6 md:space-y-8">
-              
-               <div className="bg-white/5 backdrop-blur-md border border-[#B38B59]/40 p-8 md:p-10 rounded-xl shadow-2xl relative overflow-hidden group hover:border-[#B38B59] transition-colors">
-                 <div className="absolute top-0 right-0 w-24 md:w-32 h-24 md:h-32 bg-[#B38B59]/5 rounded-bl-full transition-all group-hover:bg-[#B38B59]/10 pointer-events-none" />
-                 <UserCircle className="w-8 h-8 text-[#B38B59] mb-4 relative z-10" />
-                 <h3 className="text-lg font-semibold text-white tracking-wide mb-2 relative z-10">Managing Partner</h3>
-                 <p className="text-[#B38B59] font-semibold text-lg relative z-10">Pradeep Bansal</p>
-               </div>
 
-               <div className="bg-white/5 backdrop-blur-md border border-[#B38B59]/40 p-8 md:p-10 rounded-xl shadow-2xl relative overflow-hidden group hover:border-[#B38B59] transition-colors">
-                 <div className="absolute top-0 right-0 w-24 md:w-32 h-24 md:h-32 bg-[#B38B59]/5 rounded-bl-full transition-all group-hover:bg-[#B38B59]/10 pointer-events-none" />
-                 <MapPin className="w-8 h-8 text-[#B38B59] mb-4 relative z-10" />
-                 <h3 className="text-lg font-semibold text-white tracking-wide mb-3 relative z-10">Headquarters</h3>
-                 <p className="text-slate-300 font-medium leading-relaxed relative z-10 text-sm md:text-base">
-                   # 280, 4th main, IV Phase,<br />
-                   Peenya industrial area,<br />
-                   Bengaluru - 560058
-                 </p>
-               </div>
+              <div className="bg-white/5 backdrop-blur-md border border-[#B38B59]/40 p-8 md:p-10 rounded-xl shadow-2xl relative overflow-hidden group hover:border-[#B38B59] transition-colors">
+                <div className="absolute top-0 right-0 w-24 md:w-32 h-24 md:h-32 bg-[#B38B59]/5 rounded-bl-full transition-all group-hover:bg-[#B38B59]/10 pointer-events-none" />
+                <UserCircle className="w-8 h-8 text-[#B38B59] mb-4 relative z-10" />
+                <h3 className="text-lg font-semibold text-white tracking-wide mb-2 relative z-10">Managing Partner</h3>
+                <p className="text-[#B38B59] font-semibold text-lg relative z-10">Pradeep Bansal</p>
+              </div>
 
-               <div className="bg-white/5 backdrop-blur-md border border-[#B38B59]/40 p-8 md:p-10 rounded-xl shadow-2xl relative overflow-hidden group hover:border-[#B38B59] transition-colors">
-                 <div className="absolute top-0 right-0 w-24 md:w-32 h-24 md:h-32 bg-[#B38B59]/5 rounded-bl-full transition-all group-hover:bg-[#B38B59]/10 pointer-events-none" />
-                 <Phone className="w-8 h-8 text-[#B38B59] mb-4 relative z-10" />
-                 <h3 className="text-lg font-semibold text-white tracking-wide mb-3 relative z-10">Phone Numbers</h3>
-                 <div className="flex flex-col gap-2 relative z-10 text-sm md:text-base">
-                   <span className="text-slate-300 font-medium">Phone: <span className="text-white">080-41144796</span></span>
-                   <span className="text-slate-300 font-medium">Mobile: <span className="text-white">9845047839</span></span>
-                   <span className="text-slate-300 font-medium">Mobile: <span className="text-white">9945693122</span></span>
-                 </div>
-               </div>
+              <div className="bg-white/5 backdrop-blur-md border border-[#B38B59]/40 p-8 md:p-10 rounded-xl shadow-2xl relative overflow-hidden group hover:border-[#B38B59] transition-colors">
+                <div className="absolute top-0 right-0 w-24 md:w-32 h-24 md:h-32 bg-[#B38B59]/5 rounded-bl-full transition-all group-hover:bg-[#B38B59]/10 pointer-events-none" />
+                <MapPin className="w-8 h-8 text-[#B38B59] mb-4 relative z-10" />
+                <h3 className="text-lg font-semibold text-white tracking-wide mb-3 relative z-10">Headquarters</h3>
+                <p className="text-slate-300 font-medium leading-relaxed relative z-10 text-sm md:text-base">
+                  # 280, 4th main, IV Phase,<br />
+                  Peenya industrial area,<br />
+                  Bengaluru - 560058
+                </p>
+              </div>
 
-               <div className="bg-white/5 backdrop-blur-md border border-[#B38B59]/40 p-8 md:p-10 rounded-xl shadow-2xl relative overflow-hidden group hover:border-[#B38B59] transition-colors">
-                 <div className="absolute top-0 right-0 w-24 md:w-32 h-24 md:h-32 bg-[#B38B59]/5 rounded-bl-full transition-all group-hover:bg-[#B38B59]/10 pointer-events-none" />
-                 <Mail className="w-8 h-8 text-[#B38B59] mb-4 relative z-10" />
-                 <h3 className="text-lg font-semibold text-white tracking-wide mb-3 relative z-10">Email</h3>
-                 <p className="text-slate-300 font-medium relative z-10 text-sm md:text-base">
-                   brightindiasteel@gmail.com
-                 </p>
-               </div>
+              <div className="bg-white/5 backdrop-blur-md border border-[#B38B59]/40 p-8 md:p-10 rounded-xl shadow-2xl relative overflow-hidden group hover:border-[#B38B59] transition-colors">
+                <div className="absolute top-0 right-0 w-24 md:w-32 h-24 md:h-32 bg-[#B38B59]/5 rounded-bl-full transition-all group-hover:bg-[#B38B59]/10 pointer-events-none" />
+                <Phone className="w-8 h-8 text-[#B38B59] mb-4 relative z-10" />
+                <h3 className="text-lg font-semibold text-white tracking-wide mb-3 relative z-10">Phone Numbers</h3>
+                <div className="flex flex-col gap-2 relative z-10 text-sm md:text-base">
+                  <span className="text-slate-300 font-medium">Phone: <span className="text-white">080-41144796</span></span>
+                  <span className="text-slate-300 font-medium">Mobile: <span className="text-white">9845047839</span></span>
+                  <span className="text-slate-300 font-medium">Mobile: <span className="text-white">9945693122</span></span>
+                </div>
+              </div>
+
+              <div className="bg-white/5 backdrop-blur-md border border-[#B38B59]/40 p-8 md:p-10 rounded-xl shadow-2xl relative overflow-hidden group hover:border-[#B38B59] transition-colors">
+                <div className="absolute top-0 right-0 w-24 md:w-32 h-24 md:h-32 bg-[#B38B59]/5 rounded-bl-full transition-all group-hover:bg-[#B38B59]/10 pointer-events-none" />
+                <Mail className="w-8 h-8 text-[#B38B59] mb-4 relative z-10" />
+                <h3 className="text-lg font-semibold text-white tracking-wide mb-3 relative z-10">Email</h3>
+                <p className="text-slate-300 font-medium relative z-10 text-sm md:text-base">
+                  brightindiasteel@gmail.com
+                </p>
+              </div>
             </div>
 
             {/* ── Request a Quote Form ── */}
             <div className="lg:col-span-2">
               <div className="bg-white/5 backdrop-blur-md border border-[#B38B59]/40 p-8 md:p-12 lg:p-16 rounded-xl shadow-2xl h-full">
-                
+
                 <AnimatePresence mode="wait">
                   {isSuccess ? (
                     /* ═══ SUCCESS STATE ═══ */
@@ -316,11 +316,10 @@ export default function ContactPage() {
                         <button
                           type="submit"
                           disabled={isSubmitting}
-                          className={`w-full sm:w-auto inline-flex justify-center items-center px-10 md:px-12 py-4 md:py-5 text-sm tracking-widest uppercase font-semibold rounded-xl border transition-all duration-300 ${
-                            isSubmitting
+                          className={`w-full sm:w-auto inline-flex justify-center items-center px-10 md:px-12 py-4 md:py-5 text-sm tracking-widest uppercase font-semibold rounded-xl border transition-all duration-300 ${isSubmitting
                               ? "bg-neutral-800 text-white/50 border-white/10 cursor-not-allowed animate-pulse"
                               : "bg-white text-black border-transparent hover:bg-[#B38B59] hover:text-white hover:border-[#B38B59]"
-                          }`}
+                            }`}
                         >
                           {isSubmitting ? (
                             <>

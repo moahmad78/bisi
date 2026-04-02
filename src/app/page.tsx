@@ -4,6 +4,7 @@ import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import { motion, Variants, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import NextImage from "next/image";
 
 export default function Home() {
   const itemReveal: Variants = {
@@ -17,22 +18,22 @@ export default function Home() {
   };
 
   const rawMaterialPartners = [
-    { name: "TATA", logo: "https://static.vecteezy.com/system/resources/previews/020/975/561/large_2x/tata-logo-tata-icon-transparent-free-png.png", needsBlend: true },
-    { name: "JSW", logo: "https://e7.pngegg.com/pngimages/575/90/png-clipart-india-jsw-steel-ltd-jsw-group-logo-steel-blue-text.png", needsBlend: true },
-    { name: "BHUSHAN Power & Steel", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZy6qeFtL3kafMWOHuWZZNCxpQINigqqsb3A&s", needsBlend: true },
-    { name: "VSP", logo: "https://www.3blmedia.com/sites/default/files/styles/5x4_l/public/images/VSPGlobal_4C_3.png?h=532f109e", needsBlend: true },
-    { name: "Arjas Steel Pvt. Ltd", logo: "https://premiersteels.in/wp-content/uploads/2020/03/suppliers-1.png", needsBlend: true },
-    { name: "Jaiswal Nico", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrq_k3lBGlxEI4cQ2HVadObIP3lYPqxHt9Cw&s", needsBlend: true },
-    { name: "Gerdau", logo: "https://logospng.org/wp-content/uploads/gerdau.png", needsBlend: true },
-    { name: "RINL", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN-Kd_sEx2xPXWI0FQ_NLCe4Z6SO7MZMY3xw&s", needsBlend: true }
+    { name: "TATA", logo: "/assets/images/logo-tata.png" },
+    { name: "JSW", logo: "/assets/images/logo-jsw.png" },
+    { name: "BHUSHAN Power & Steel", logo: "/assets/images/logo-bhushan.png" },
+    { name: "VSP", logo: "/assets/images/logo-vsp.png" },
+    { name: "Arjas Steel Pvt. Ltd", logo: "/assets/images/logo-arjas.png" },
+    { name: "Jaiswal Nico", logo: "/assets/images/logo-jaiswal.png" },
+    { name: "Gerdau", logo: "/assets/images/logo-gerdau.png" },
+    { name: "RINL", logo: "/assets/images/logo-rinl.png" }
   ];
 
   /* ── Mobile Hero Slider State ── */
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
-    "https://shyammetalics.com/static/media/blugs.c1fa9be1f7c62eb160a2.webp",
-    "https://www.beharilalengineering.com/assets/img/images/carbon-product-3.1.jpg?v=1.3",
-    "https://www.aonesteelgroup.com/wp-content/uploads/2024/06/Img.jpg"
+    "/assets/images/hero-1.webp",
+    "/assets/images/hero-2.jpg",
+    "/assets/images/hero-3.jpg"
   ];
 
   useEffect(() => {
@@ -44,21 +45,24 @@ export default function Home() {
 
   return (
     <div className="bg-transparent overflow-hidden font-sans selection:bg-[#B38B59] selection:text-white">
-      
+
       {/* ═══════════════════════════════════════════════════════════════
           SECTION 1: HERO (DESKTOP)
       ═══════════════════════════════════════════════════════════════ */}
       <section className="relative min-h-[90vh] hidden md:flex flex-col justify-center pt-36 pb-32">
         <div className="absolute inset-0 z-0">
-           <div 
-             className="absolute inset-0 bg-fixed bg-cover bg-center opacity-60" 
-             style={{ backgroundImage: 'url("https://www.bisiengineering.in/static/media/hero-bg.e515046fe9ebbecc4127.jpg")' }}
-           />
-           <div className="absolute inset-0 bg-industrial-overlay" />
+          <NextImage
+            src="/assets/images/hero-desktop.jpg"
+            alt="BISI Hero Background"
+            fill
+            priority
+            className="object-cover object-center opacity-60"
+          />
+          <div className="absolute inset-0 bg-industrial-overlay" />
         </div>
-        
+
         <div className="container mx-auto px-6 lg:px-12 relative z-10 flex-grow flex flex-col justify-center w-full">
-          <motion.div 
+          <motion.div
             initial="hidden" animate="show" variants={staggerContainer}
             className="max-w-4xl"
           >
@@ -71,30 +75,30 @@ export default function Home() {
               </span>
             </motion.div>
 
-            <motion.h1 
+            <motion.h1
               variants={itemReveal}
               className="text-4xl sm:text-5xl md:text-7xl font-semibold text-white tracking-tight leading-[1.05] mb-8"
             >
               Precision Bright Bars <br className="hidden md:block" />
               Engineered for <span className="text-[#B38B59]">Performance.</span>
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.p
               variants={itemReveal}
               className="text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed mb-12 font-medium border-l-2 border-[#B38B59] pl-6"
             >
               BISI Engineering delivers high-precision Cold Drawn Bright Steel Bars across Round, Square, Hexagon, and Flat profiles. We serve Automotive, Hydraulic, SPM, and General Engineering sectors with unmatched dimensional accuracy.
             </motion.p>
-            
+
             <motion.div variants={itemReveal} className="flex flex-col sm:flex-row gap-5">
-              <Link 
-                href="/contact" 
+              <Link
+                href="/contact"
                 className="inline-flex justify-center items-center px-10 py-5 bg-[#B38B59] text-white text-sm tracking-widest uppercase font-semibold rounded-xl hover:bg-[#9a7448] transition-colors shadow-lg shadow-[#B38B59]/20"
               >
                 Request a Quote <ArrowUpRight className="w-5 h-5 ml-2" />
               </Link>
-              <Link 
-                href="/products" 
+              <Link
+                href="/products"
                 className="inline-flex justify-center items-center px-10 py-5 bg-transparent text-white text-sm tracking-widest uppercase font-semibold rounded-xl border border-[#B38B59] hover:bg-[#B38B59]/10 transition-colors"
               >
                 View Product Catalogue
@@ -142,12 +146,19 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.8 }}
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url("${slides[currentSlide]}")` }}
-            />
+              className="absolute inset-0"
+            >
+              <NextImage
+                src={slides[currentSlide]}
+                alt={`BISI Industrial Slide ${currentSlide + 1}`}
+                fill
+                priority
+                className="object-cover object-center"
+              />
+            </motion.div>
           </AnimatePresence>
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
-          
+
           {/* Progress Indicators */}
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 px-3 py-1 bg-black/40 backdrop-blur-sm rounded-full">
             {slides.map((_, i) => (
@@ -157,25 +168,25 @@ export default function Home() {
         </div>
 
         {/* Bottom Section: Content Flow */}
-        <div className="px-6 py-12">
+        <div className="px-6 pt-10 pb-6">
           <span className="inline-block px-4 py-1 rounded-full border border-[#B38B59]/40 text-[#B38B59] text-[10px] font-bold tracking-widest uppercase mb-6 bg-[#B38B59]/5">
             Est. 2002 | ISO Certified
           </span>
           <h1 className="text-3xl font-bold text-white tracking-tight leading-tight mb-6">
             Precision Bright Bars Engineered for <span className="text-[#B38B59]">Performance.</span>
           </h1>
-          <p className="text-slate-400 text-base font-medium leading-relaxed mb-10 border-l-2 border-[#B38B59] pl-4">
+          <p className="text-slate-400 text-base font-medium leading-relaxed mb-6 md:mb-10 border-l-2 border-[#B38B59] pl-4">
             A trusted manufacturer and supplier of high-quality Bright Steel Bars serving engineering, automotive, hydraulic, and industrial manufacturing sectors across India and global markets.
           </p>
           <div className="flex flex-col gap-4">
-            <Link 
-              href="/products" 
+            <Link
+              href="/products"
               className="w-full flex justify-center items-center py-4 bg-[#B38B59] text-white text-xs tracking-widest uppercase font-bold rounded-xl shadow-lg"
             >
               Explore Products
             </Link>
-            <Link 
-              href="/contact" 
+            <Link
+              href="/contact"
               className="w-full flex justify-center items-center py-4 bg-transparent text-white text-xs tracking-widest uppercase font-bold rounded-xl border border-[#B38B59]"
             >
               Request a Quote
@@ -189,13 +200,18 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════════════
           SECTION 2: ENGINEERING SNAPSHOT
       ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative py-24 md:py-32 border-b border-white/5">
+      <section className="relative py-12 md:py-24 border-b border-white/5">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-fixed bg-cover bg-center opacity-20" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1565515261920-561b6238b77a?q=80&w=2070&auto=format&fit=crop")' }} />
+          <NextImage
+            src="/assets/images/bg-manufacturing.png"
+            alt="BISI Engineering Snapshot"
+            fill
+            className="object-cover object-center opacity-20 min-h-[250px] md:min-h-[400px]"
+          />
           <div className="absolute inset-0 bg-industrial-overlay" />
         </div>
-        <div className="container mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center relative z-10">
-          <motion.div 
+        <div className="container mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 lg:gap-20 items-center relative z-10">
+          <motion.div
             initial="hidden" whileInView="show" viewport={{ once: true }} variants={staggerContainer}
             className="order-2 lg:order-1"
           >
@@ -220,13 +236,13 @@ export default function Home() {
               </Link>
             </motion.div>
           </motion.div>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }} viewport={{ once: true }}
             className="order-1 lg:order-2 relative"
           >
             <div className="absolute inset-0 bg-[#B38B59] translate-x-4 translate-y-4 rounded-xl" />
             <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-white/10 z-10 bg-black">
-              <img src="https://avantiengineering.com/wp-content/uploads/2019/10/CNC-Screw-Machine.jpg" alt="BISI Industrial Facility — CNC Screw Machines" className="object-cover w-full h-full opacity-80" loading="lazy" />
+              <NextImage src="/assets/images/facility-cnc.jpg" alt="BISI Industrial Facility — CNC Screw Machines" fill className="object-cover opacity-80" />
             </div>
           </motion.div>
         </div>
@@ -235,9 +251,14 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════════════
           SECTION 3: CORE PRODUCTS PREVIEW
       ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative py-24 md:py-32 border-b border-white/5">
+      <section className="relative py-12 md:py-24 border-b border-white/5">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-fixed bg-cover bg-center opacity-20" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1532054942125-1e3914a1eb4c?q=80&w=2070&auto=format&fit=crop")' }} />
+          <NextImage
+            src="/assets/images/bg-industries.webp"
+            alt="BISI Products Background"
+            fill
+            className="object-cover object-center opacity-20 min-h-[250px] md:min-h-[400px]"
+          />
           <div className="absolute inset-0 bg-industrial-overlay" />
         </div>
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
@@ -249,19 +270,19 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {[
-              { title: "Round Bars", image: "https://www.metalsupplies.com/wp-content/uploads/2016/11/round-bar.jpg", desc: "Shafts, Axles, Gears" },
-              { title: "Square Bars", image: "https://5.imimg.com/data5/KJ/LP/GLADMIN-48916739/square-bars-500x500.png", desc: "Structural, Tooling, Dies" },
-              { title: "Flat Bars", image: "https://www.sanghvioverseas.com/blog/wp-content/uploads/2024/07/steel-flat-bar.jpg", desc: "SPM, Base Plates, Guides" },
-              { title: "Hexagon Bars", image: "https://www.metalsupplies.com/wp-content/uploads/2012/08/metalsupplies_032.jpg", desc: "Fasteners, Nuts, Hydraulics" },
-              { title: "Custom Profiles", image: "https://image.made-in-china.com/43f34j00hwYlCjkfJRUa/Galvanized-Steel-Round-Bar-Price-12mm-16mm-32mm-Gi-Round-Rod-Bar-Zinc-Coated-Mental-Round-Square-Bar.webp", desc: "Built to Your Print" }
+              { title: "Round Bars", image: "/assets/images/prod-round.jpg", desc: "Shafts, Axles, Gears" },
+              { title: "Square Bars", image: "/assets/images/prod-square.png", desc: "Structural, Tooling, Dies" },
+              { title: "Flat Bars", image: "/assets/images/prod-flat.jpg", desc: "SPM, Base Plates, Guides" },
+              { title: "Hexagon Bars", image: "/assets/images/prod-hex.jpg", desc: "Fasteners, Nuts, Hydraulics" },
+              { title: "Custom Profiles", image: "/assets/images/prod-custom.jpg", desc: "Built to Your Print" }
             ].map((prod, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08, duration: 0.6 }} viewport={{ once: true }}
                 className="group relative bg-white/5 backdrop-blur-md border border-[#B38B59]/40 rounded-xl overflow-hidden hover:border-[#B38B59] transition-colors"
               >
                 <div className="relative h-44 w-full bg-neutral-900 border-b border-white/10 overflow-hidden">
-                  <img src={prod.image} alt={prod.title} className="object-cover w-full h-full opacity-60 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700" loading="lazy" />
+                  <NextImage src={prod.image} alt={prod.title} fill className="object-cover opacity-60 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700" />
                 </div>
                 <div className="p-5">
                   <h4 className="text-base font-semibold text-white mb-1">{prod.title}</h4>
@@ -272,7 +293,7 @@ export default function Home() {
           </div>
 
           {/* ── Special Precision Showcase ── */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}
             className="mt-16 bg-white/5 backdrop-blur-md border border-[#B38B59] rounded-xl overflow-hidden p-8 lg:p-12 flex flex-col lg:flex-row gap-12 items-center"
           >
@@ -281,7 +302,7 @@ export default function Home() {
               <p className="text-slate-300 font-medium mb-10 leading-relaxed border-l-2 border-[#B38B59] pl-6 text-sm md:text-base">
                 Micro-precision tolerances for specialist Automotive and SPM units. Available in MS, EN1A, and EN8D grades.
               </p>
-              
+
               <div className="mb-8">
                 <span className="block text-xs text-[#B38B59] uppercase tracking-widest font-semibold mb-3">Small Size Squares (4mm–10mm)</span>
                 <span className="px-6 py-2 bg-[#B38B59]/10 border border-[#B38B59] text-white font-semibold rounded-xl inline-block">4mm – 10mm</span>
@@ -298,9 +319,9 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            
+
             <div className="relative w-full lg:w-1/2 min-h-[300px] md:min-h-[400px] border border-white/10 rounded-xl overflow-hidden">
-              <img src="https://5.imimg.com/data5/SELLER/Default/2025/10/554032002/GK/KZ/AF/143763735/small-size-steel-bar-500x500.jpg" alt="Small Size Precision Steel Bars" className="object-cover w-full h-full opacity-60" loading="lazy" />
+              <NextImage src="/assets/images/prod-small.jpg" alt="Small Size Precision Steel Bars" fill className="object-cover opacity-60" />
               <div className="absolute inset-0 bg-gradient-to-tr from-black/80 to-transparent" />
             </div>
           </motion.div>
@@ -313,36 +334,33 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════════════
           SECTION 4: RAW MATERIAL PARTNERS (INFINITE MARQUEE)
       ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative py-24 mb-12">
+      <section className="relative py-12 md:py-20">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-zinc-950 opacity-90" />
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #B38B59 0.5px, transparent 0)', backgroundSize: '30px 30px' }} />
         </div>
-        
-        <div className="relative z-10 w-full overflow-hidden">
-          <div className="container mx-auto px-6 lg:px-12 text-center mb-16">
-            <h2 className="text-sm font-semibold tracking-[0.25em] text-[#B38B59] uppercase mb-4">Raw Material Strength</h2>
-            <h3 className="text-2xl md:text-4xl font-semibold text-white">We source from India&apos;s most trusted mills.</h3>
+
+        <div className="container mx-auto px-6 mb-10 relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <p className="text-yellow-500 text-xs tracking-widest font-semibold mb-2 uppercase">Raw Material Strength</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-8">We source only from India's most trusted steel mills.</h2>
           </div>
-          
-          <div className="flex w-max animate-marquee py-12 border-y border-white/5 bg-white/5 backdrop-blur-sm">
+        </div>
+
+        <div className="relative z-10 w-full overflow-hidden">
+          <div className="flex w-max animate-marquee py-4 border-y border-white/5 bg-white/5 backdrop-blur-sm">
             {[...Array(4)].map((_, dupIdx) => (
               rawMaterialPartners.map((partner, idx) => (
-                <div key={`${dupIdx}-${idx}`} className="flex items-center px-12 md:px-20 group">
-                   <div className="h-10 w-auto md:h-12 relative flex items-center">
-                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                     <img 
-                       src={partner.logo} 
-                       alt={partner.name} 
-                       className={`h-full w-auto object-contain transition-all duration-300 ${
-                         partner.needsBlend 
-                         ? "grayscale invert brightness-[2] mix-blend-screen opacity-80 group-hover:opacity-100 group-hover:brightness-[2.5]" 
-                         : "grayscale brightness-200 opacity-60 group-hover:grayscale-0 group-hover:brightness-100 group-hover:opacity-100"
-                       }`}
-                       loading="lazy" 
-                     />
-                   </div>
-                   <div className="w-1.5 h-1.5 rounded-full bg-[#B38B59]/40 ml-12 md:ml-20" />
+                <div key={`${dupIdx}-${idx}`} className="flex items-center px-6 md:px-10 group">
+                  <div className="bg-white px-4 py-2 rounded-md shadow-sm flex items-center justify-center h-12 md:h-14 w-32 md:w-40 relative transition-transform hover:scale-105 duration-300">
+                    <NextImage
+                      src={partner.logo}
+                      alt={partner.name}
+                      width={120}
+                      height={40}
+                      className="h-8 md:h-10 w-auto object-contain"
+                    />
+                  </div>
                 </div>
               ))
             ))}

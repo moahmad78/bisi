@@ -6,8 +6,8 @@ import { ArrowRight, FileText } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      <div 
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-0 md:pt-20">
+      <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: 'url("https://www.bisiengineering.in/static/media/hero-bg.e515046fe9ebbecc4127.jpg")' }}
       >
@@ -44,15 +44,15 @@ export default function HeroSection() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <Link 
-              href="/products" 
+            <Link
+              href="/products"
               className="group flex items-center justify-center gap-2 px-8 py-4 bg-accent text-white font-semibold rounded hover:bg-accent-light transition-all shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)]"
             >
               Explore Products
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
-            <Link 
-              href="/contact" 
+            <Link
+              href="/contact"
               className="flex items-center justify-center gap-2 px-8 py-4 bg-transparent border border-white/20 text-white font-semibold rounded hover:bg-white/5 transition-colors"
             >
               <FileText className="w-5 h-5" />

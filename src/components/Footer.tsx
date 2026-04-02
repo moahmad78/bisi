@@ -4,10 +4,10 @@ import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-black border-t border-white/10 pt-20 pb-10">
+    <footer className="bg-black border-t border-white/10 pt-0 md:pt-20 pb-10">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
-          
+
           {/* Column 1: Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block mb-4 group">
@@ -79,9 +79,9 @@ export default function Footer() {
               <li className="flex items-start gap-4 text-sm text-slate-400 font-medium">
                 <Phone className="w-5 h-5 text-[#B38B59] flex-shrink-0 mt-0.5" />
                 <div className="flex flex-col gap-1">
-                   <a href="tel:+918041144796" className="hover:text-[#B38B59] transition-colors">Phone: 080-41144796</a>
-                   <a href="tel:+919845047839" className="hover:text-[#B38B59] transition-colors">Mobile: 9845047839</a>
-                   <a href="tel:+919945693122" className="hover:text-[#B38B59] transition-colors">Mobile: 9945693122</a>
+                  <a href="tel:+918041144796" className="hover:text-[#B38B59] transition-colors">Phone: 080-41144796</a>
+                  <a href="tel:+919845047839" className="hover:text-[#B38B59] transition-colors">Mobile: 9845047839</a>
+                  <a href="tel:+919945693122" className="hover:text-[#B38B59] transition-colors">Mobile: 9945693122</a>
                 </div>
               </li>
               <li className="flex items-center gap-4 text-sm text-slate-400 font-medium">
@@ -98,8 +98,8 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Bright India Steel Industries (BISI) | Sister Concern: M/S. Industrial Steel & Alloys. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-             <Link href="/privacy" className="text-xs text-slate-500 font-medium hover:text-[#B38B59] transition-colors">Privacy Policy</Link>
-             <Link href="/terms" className="text-xs text-slate-500 font-medium hover:text-[#B38B59] transition-colors">Terms of Service</Link>
+            <Link href="/privacy" className="text-xs text-slate-500 font-medium hover:text-[#B38B59] transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="text-xs text-slate-500 font-medium hover:text-[#B38B59] transition-colors">Terms of Service</Link>
           </div>
           <p className="text-xs text-slate-500 font-medium">
             Designed & Developed by{" "}

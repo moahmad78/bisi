@@ -3,14 +3,19 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, FileText } from "lucide-react";
+import Image from "next/image";
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-0 md:pt-20">
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url("https://www.bisiengineering.in/static/media/hero-bg.e515046fe9ebbecc4127.jpg")' }}
-      >
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="https://www.bisiengineering.in/static/media/hero-bg.e515046fe9ebbecc4127.jpg"
+          alt="BISI Hero Background"
+          fill
+          priority
+          className="object-cover object-center"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/80 to-background z-0" />
       </div>
 

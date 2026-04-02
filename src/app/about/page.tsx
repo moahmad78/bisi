@@ -66,6 +66,7 @@ export default function AboutPage() {
                 src="/assets/images/facility-interior.jpg"
                 alt="BISI Engineering — CNC Precision Manufacturing Facility"
                 fill
+                priority
                 className="object-cover opacity-75"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/70 via-transparent to-transparent" />
@@ -270,12 +271,12 @@ export default function AboutPage() {
                 {/* Mesh Pattern Overlay */}
                 <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #B38B59 0.5px, transparent 0)', backgroundSize: '20px 20px' }} />
 
-                <div className="relative z-10 overflow-hidden rounded-lg border border-white/5 bg-black/50">
-                  <img
+                <div className="relative z-10 overflow-hidden rounded-lg border border-white/5 bg-black/50 aspect-[3/4]">
+                  <NextImage
                     src="/iso.jpg"
                     alt="BISI ISO 9001:2015 Certificate"
-                    className="w-full h-auto rounded-lg cursor-pointer hover:scale-[1.02] transition-transform duration-500"
-                    loading="lazy"
+                    fill
+                    className="object-contain rounded-lg cursor-pointer hover:scale-[1.02] transition-transform duration-500"
                   />
                 </div>
                 <p className="text-center text-white/40 text-[10px] md:text-xs tracking-widest uppercase mt-4 mb-1 font-semibold group-hover:text-[#B38B59] transition-colors relative z-10">

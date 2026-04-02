@@ -96,6 +96,7 @@ export default function ContactPage() {
       backgroundImageUrl="/assets/images/bg-contact.jpg"
       blurAmount="blur-md"
       overlayOpacity={0.7}
+      priority
     >
       <div className="pt-28 pb-12 md:pt-36 md:pb-24 min-h-screen bg-transparent font-sans selection:bg-[#B38B59] selection:text-white">
         <div className="container mx-auto px-6 lg:px-12">
@@ -317,8 +318,8 @@ export default function ContactPage() {
                           type="submit"
                           disabled={isSubmitting}
                           className={`w-full sm:w-auto inline-flex justify-center items-center px-10 md:px-12 py-4 md:py-5 text-sm tracking-widest uppercase font-semibold rounded-xl border transition-all duration-300 ${isSubmitting
-                              ? "bg-neutral-800 text-white/50 border-white/10 cursor-not-allowed animate-pulse"
-                              : "bg-white text-black border-transparent hover:bg-[#B38B59] hover:text-white hover:border-[#B38B59]"
+                            ? "bg-neutral-800 text-white/50 border-white/10 cursor-not-allowed animate-pulse"
+                            : "bg-white text-black border-transparent hover:bg-[#B38B59] hover:text-white hover:border-[#B38B59]"
                             }`}
                         >
                           {isSubmitting ? (

@@ -62,10 +62,6 @@ export default function Navbar() {
                 width={180}
                 height={72}
                 className="h-12 w-auto md:h-14 lg:h-16 object-contain transition-opacity duration-300 group-hover:opacity-80"
-                style={{
-                  filter: 'invert(1) hue-rotate(180deg) brightness(1.15)',
-                  mixBlendMode: 'screen',
-                }}
                 priority
               />
             </Link>
@@ -141,11 +137,7 @@ export default function Navbar() {
                     width={140}
                     height={56}
                     className="object-contain h-8 w-auto"
-                    style={{
-                      filter: 'invert(1) hue-rotate(180deg) brightness(1.15)',
-                      mixBlendMode: 'screen',
-                    }}
-                  />
+                    />
                 </div>
                 <button onClick={() => setIsOpen(false)} className="text-white/60 hover:text-white p-1" aria-label="Close menu">
                   <X className="w-5 h-5" />

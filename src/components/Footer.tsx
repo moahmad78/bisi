@@ -1,11 +1,35 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
+  const pathname = usePathname();
+  const isContactPage = pathname === "/contact";
   return (
     <footer className="bg-black border-t border-white/10 pt-0 md:pt-20 pb-10">
       <div className="container mx-auto px-6 lg:px-12">
+        {/* Full-width Map Section - Hidden on Contact Page */}
+        {!isContactPage && (
+          <div className="mt-10 mb-6 md:mt-24 md:mb-16">
+            <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl h-48 md:h-56 group">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.247671522916!2d77.5106029!3d13.0198939!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3ce355469445%3A0xe7673844670e02ad!2s280%2C%204th%20Main%20Rd%2C%20Ganapathy%20Nagar%2C%20Peenya%20Industrial%20Area%20Phase%20IV%2C%20Peenya%2C%20Bengaluru%2C%20Karnataka%20560058!5e0!3m2!1sen!2sin!4v1775042710199!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full grayscale-[50%] invert-[90%] hue-rotate-180 contrast-125 group-hover:grayscale-0 group-hover:invert-0 group-hover:hue-rotate-0 transition-all duration-700"
+              ></iframe>
+              <div className="absolute inset-0 pointer-events-none border border-white/5 rounded-xl"></div>
+            </div>
+          </div>
+        )}
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
 
           {/* Column 1: Brand */}
@@ -17,10 +41,6 @@ export default function Footer() {
                 width={180}
                 height={72}
                 className="h-16 w-auto md:h-20 lg:h-24 object-contain transition-opacity duration-300 group-hover:opacity-80"
-                style={{
-                  filter: 'invert(1) hue-rotate(180deg) brightness(1.15)',
-                  mixBlendMode: 'screen',
-                }}
               />
             </Link>
 
@@ -101,12 +121,6 @@ export default function Footer() {
             <Link href="/privacy" className="text-xs text-slate-500 font-medium hover:text-[#B38B59] transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="text-xs text-slate-500 font-medium hover:text-[#B38B59] transition-colors">Terms of Service</Link>
           </div>
-          <p className="text-xs text-slate-500 font-medium">
-            Designed & Developed by{" "}
-            <a href="https://catalystdigisolutions.com/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-[#B38B59] transition-colors font-medium">
-              Catalyst Digi Solutions
-            </a>
-          </p>
         </div>
       </div>
     </footer>

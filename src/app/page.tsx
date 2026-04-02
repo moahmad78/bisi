@@ -3,8 +3,37 @@
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import { motion, Variants, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import NextImage from "next/image";
+import { useInView, animate } from "framer-motion";
+
+function StatCounter({ value }: { value: string }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const [displayValue, setDisplayValue] = useState("0");
+
+  useEffect(() => {
+    if (isInView) {
+      const match = value.match(/(\d+)(.*)/);
+      if (match) {
+        const target = parseInt(match[1]);
+        const suffix = match[2];
+        const controls = animate(0, target, {
+          duration: 2,
+          ease: [0.16, 1, 0.3, 1], // Custom cubic-bezier for smooth execution
+          onUpdate(latest) {
+            setDisplayValue(Math.floor(latest) + suffix);
+          },
+        });
+        return () => controls.stop();
+      } else {
+        setDisplayValue(value);
+      }
+    }
+  }, [isInView, value]);
+
+  return <span ref={ref}>{displayValue}</span>;
+}
 
 export default function Home() {
   const itemReveal: Variants = {
@@ -107,30 +136,6 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* ── Marquee Strip (Desktop Only) ── */}
-        <div className="absolute bottom-0 left-0 w-full z-20 bg-black/50 backdrop-blur-md py-6 border-t border-white/10 overflow-hidden">
-          <div className="flex w-max animate-marquee">
-            {[...Array(4)].map((_, dupIdx) => (
-              <div key={dupIdx} className="flex flex-nowrap items-center">
-                {[
-                  { val: "100%", label: "Customer Focus" },
-                  { val: "22+", label: "Years of Excellence" },
-                  { val: "18", label: "Production Machines" },
-                  { val: "ISO", label: "9001:2015 Certified" }
-                ].map((stat, i) => (
-                  <div key={i} className="flex flex-col gap-1 pr-16 md:pr-24 pl-6">
-                    <span className="text-3xl md:text-4xl font-bold text-white tracking-tight whitespace-nowrap">
-                      {stat.val}
-                    </span>
-                    <span className="text-xs md:text-sm text-gray-300 font-medium tracking-wide uppercase whitespace-nowrap">
-                      {stat.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
@@ -139,24 +144,21 @@ export default function Home() {
       <section className="md:hidden block bg-zinc-950">
         {/* Top Section: Auto-playing Slider */}
         <div className="relative w-full aspect-[4/3] overflow-hidden">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentSlide}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.8 }}
-              className="absolute inset-0"
+          {slides.map((slide, i) => (
+            <div
+              key={i}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${i === currentSlide ? "opacity-100" : "opacity-0"
+                }`}
             >
               <NextImage
-                src={slides[currentSlide]}
-                alt={`BISI Industrial Slide ${currentSlide + 1}`}
+                src={slide}
+                alt={`BISI Industrial Slide ${i + 1}`}
                 fill
-                priority
+                priority={i === 0}
                 className="object-cover object-center"
               />
-            </motion.div>
-          </AnimatePresence>
+            </div>
+          ))}
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
 
           {/* Progress Indicators */}
@@ -192,6 +194,46 @@ export default function Home() {
               Request a Quote
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          SECTION 1.5: GLOBAL STATISTICS MARQUEE (COMPACT HORIZONTAL)
+      ═══════════════════════════════════════════════════════════════ */}
+      <section className="relative w-full z-20 py-3 md:py-5 overflow-hidden bg-transparent">
+        <div className="absolute inset-0 border-y border-white/10" />
+        <div className="flex w-max animate-marquee relative z-10">
+          {[...Array(4)].map((_, dupIdx) => (
+            <div key={dupIdx} className="flex flex-nowrap items-center">
+              {[
+                { val: "100%", label: "Customer Focus", icon: "/assets/images/stats-customer.png" },
+                { val: "22+", label: "Years of Excellence", icon: "/assets/images/stats-years.png" },
+                { val: "18", label: "Production Machines", icon: "/assets/images/stats-machine.png" },
+                { val: "ISO", label: "9001:2015 Certified", icon: "/assets/images/stats-iso.png" },
+                { val: "Labs", label: "Advanced Quality Hub", icon: "/assets/images/stats-lab.png" }
+              ].map((stat, i) => (
+                <div key={i} className="flex flex-row items-center gap-x-3 pr-12 md:pr-24 pl-6 group transition-all duration-300">
+                  <div className="relative h-8 md:h-12 w-auto transition-transform duration-500 group-hover:scale-110">
+                    <NextImage
+                      src={stat.icon}
+                      alt={stat.label}
+                      width={48}
+                      height={48}
+                      className="h-full w-auto object-contain brightness-0 invert transition-opacity"
+                    />
+                  </div>
+                  <div className="flex flex-row items-baseline gap-x-2">
+                    <span className="text-xl md:text-3xl font-bold text-white tracking-tight leading-none">
+                      <StatCounter value={stat.val} />
+                    </span>
+                    <span className="text-[9px] md:text-xs text-neutral-100 font-extrabold tracking-[0.1em] uppercase whitespace-nowrap">
+                      {stat.label}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
       </section>
 
@@ -348,17 +390,17 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 w-full overflow-hidden">
-          <div className="flex w-max animate-marquee py-4 border-y border-white/5 bg-white/5 backdrop-blur-sm">
+          <div className="flex w-max animate-marquee py-8 border-y border-white/5">
             {[...Array(4)].map((_, dupIdx) => (
               rawMaterialPartners.map((partner, idx) => (
-                <div key={`${dupIdx}-${idx}`} className="flex items-center px-6 md:px-10 group">
-                  <div className="bg-white px-4 py-2 rounded-md shadow-sm flex items-center justify-center h-12 md:h-14 w-32 md:w-40 relative transition-transform hover:scale-105 duration-300">
+                <div key={`${dupIdx}-${idx}`} className="flex items-center px-4 md:px-8">
+                  <div className="bg-white rounded-lg shadow-md p-4 flex items-center justify-center transition-transform hover:scale-105 duration-300">
                     <NextImage
                       src={partner.logo}
                       alt={partner.name}
-                      width={120}
-                      height={40}
-                      className="h-8 md:h-10 w-auto object-contain"
+                      width={160}
+                      height={60}
+                      className="h-10 md:h-12 w-auto object-contain"
                     />
                   </div>
                 </div>
@@ -368,6 +410,6 @@ export default function Home() {
         </div>
       </section>
 
-    </div>
+    </div >
   );
 }

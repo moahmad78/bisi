@@ -1,6 +1,6 @@
 export default function TermsPage() {
   return (
-    <div className="pt-36 pb-24 min-h-screen bg-black font-sans selection:bg-[#B38B59] selection:text-white">
+    <div className="pt-36 pb-24 min-h-screen bg-transparent font-sans selection:bg-[#B38B59] selection:text-white">
       <div className="container mx-auto px-6 lg:px-12 max-w-4xl">
         
         <div className="mb-16">
@@ -68,7 +68,7 @@ export default function TermsPage() {
             <p className="text-slate-300 font-medium leading-relaxed mb-6">
               For any questions regarding these Terms of Service, please contact:
             </p>
-            <div className="bg-neutral-950 border border-white/10 rounded-xl p-8">
+            <div className="bg-white/5 backdrop-blur-md border border-[#B38B59]/40 rounded-xl p-8 shadow-2xl">
               <p className="text-white font-semibold text-lg mb-1">Bright India Steel Industries (BISI Engineering)</p>
               <p className="text-slate-400 font-medium text-sm leading-relaxed mt-4">
                 # 280, 4th main, IV Phase, Peenya industrial area, Bengaluru - 560058<br />

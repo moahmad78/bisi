@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -28,11 +29,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} antialiased bg-white text-slate-900 min-h-screen flex flex-col selection:bg-blue-700 selection:text-white`}>
+      <body className={`${inter.variable} antialiased min-h-screen flex flex-col selection:bg-[#B38B59] selection:text-white`}>
         {/* Built with precision by Sahil Sheikh (@sahil_sheikh78) */}
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />
+        <FloatingWhatsAppButton />
       </body>
     </html>
   );

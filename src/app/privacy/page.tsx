@@ -1,6 +1,6 @@
 export default function PrivacyPage() {
   return (
-    <div className="pt-36 pb-24 min-h-screen bg-black font-sans selection:bg-[#B38B59] selection:text-white">
+    <div className="pt-36 pb-24 min-h-screen bg-transparent font-sans selection:bg-[#B38B59] selection:text-white">
       <div className="container mx-auto px-6 lg:px-12 max-w-4xl">
         
         <div className="mb-16">
@@ -60,7 +60,7 @@ export default function PrivacyPage() {
             <p className="text-slate-300 font-medium leading-relaxed">
               For any privacy-related questions or requests, please contact our Managing Partner directly:
             </p>
-            <div className="mt-6 bg-neutral-950 border border-white/10 rounded-xl p-8">
+            <div className="mt-6 bg-white/5 backdrop-blur-md border border-[#B38B59]/40 rounded-xl p-8 shadow-2xl">
               <p className="text-white font-semibold text-lg mb-1">Pradeep Bansal</p>
               <p className="text-[#B38B59] text-xs uppercase tracking-widest font-semibold mb-4">Managing Partner</p>
               <p className="text-slate-400 font-medium text-sm leading-relaxed">

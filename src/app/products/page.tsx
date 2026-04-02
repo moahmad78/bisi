@@ -50,7 +50,7 @@ export default function ProductsPage() {
   ];
 
   return (
-    <div className="pt-36 pb-24 min-h-screen bg-black font-sans selection:bg-[#B38B59] selection:text-white">
+    <div className="pt-36 pb-24 min-h-screen bg-transparent font-sans selection:bg-[#B38B59] selection:text-white">
       <div className="container mx-auto px-6 lg:px-12">
         
         {/* ── Header ── */}
@@ -80,7 +80,7 @@ export default function ProductsPage() {
               key={product.id}
               id={product.id}
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1, duration: 0.6 }} viewport={{ once: true }}
-              className="scroll-mt-24 bg-neutral-950 border border-white/10 rounded-xl overflow-hidden group hover:border-[#B38B59]/50 transition-colors shadow-2xl"
+              className="scroll-mt-24 bg-white/5 backdrop-blur-md border border-[#B38B59]/40 rounded-xl overflow-hidden group hover:border-[#B38B59] transition-colors shadow-2xl"
             >
               <div className="relative w-full h-56 md:h-64 bg-neutral-900 border-b border-white/10 overflow-hidden">
                 <img 
@@ -126,7 +126,7 @@ export default function ProductsPage() {
           <h2 className="text-2xl md:text-3xl font-semibold text-white mb-8 border-b border-white/10 pb-6 flex items-center gap-4">
              <BarChart2 className="w-7 h-7 text-[#B38B59] flex-shrink-0" /> Specialized Steel Grades Matrix
           </h2>
-          <div className="bg-neutral-950 border border-white/10 rounded-xl overflow-hidden shadow-2xl">
+          <div className="bg-white/5 backdrop-blur-md border border-[#B38B59]/40 rounded-xl overflow-hidden shadow-2xl">
              <div className="overflow-x-auto">
                <table className="w-full text-left border-collapse min-w-[600px]">
                  <thead>
@@ -166,7 +166,7 @@ export default function ProductsPage() {
         <motion.div 
           id="precision-small-size"
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="scroll-mt-24 bg-black border border-[#B38B59] rounded-xl overflow-hidden relative shadow-[0_0_50px_rgba(179,139,89,0.08)]"
+          className="scroll-mt-24 bg-white/5 backdrop-blur-md border border-[#B38B59] rounded-xl overflow-hidden relative shadow-[0_0_50px_rgba(179,139,89,0.08)]"
         >
           <div className="relative w-full h-56 md:h-80 bg-neutral-900 overflow-hidden">
              <img 
@@ -190,13 +190,13 @@ export default function ProductsPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
-               <div className="bg-neutral-950 backdrop-blur-md p-8 md:p-10 rounded-xl border border-white/10 hover:border-[#B38B59]/50 transition-colors">
+               <div className="bg-white/5 backdrop-blur-md p-8 md:p-10 rounded-xl border border-[#B38B59]/30 hover:border-[#B38B59] transition-colors">
                  <h3 className="text-sm md:text-base font-medium text-[#B38B59] uppercase tracking-widest mb-2">Small Size Squares</h3>
                  <span className="block text-xs text-neutral-500 uppercase tracking-widest font-semibold mb-6">Grades: MS, EN1A, EN8D</span>
                  <span className="text-3xl md:text-4xl font-semibold text-white">4mm <span className="text-neutral-600 px-2">–</span> 10mm</span>
                </div>
                
-               <div className="bg-neutral-950 backdrop-blur-md p-8 md:p-10 rounded-xl border border-white/10 hover:border-[#B38B59]/50 transition-colors">
+               <div className="bg-white/5 backdrop-blur-md p-8 md:p-10 rounded-xl border border-[#B38B59]/30 hover:border-[#B38B59] transition-colors">
                  <h3 className="text-sm md:text-base font-medium text-[#B38B59] uppercase tracking-widest mb-2">Small Size Flats</h3>
                  <span className="block text-xs text-neutral-500 uppercase tracking-widest font-semibold mb-6">Exact Custom Dimensions</span>
                  <div className="flex flex-wrap gap-2 md:gap-3">

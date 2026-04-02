@@ -17,14 +17,14 @@ export default function Home() {
   };
 
   const rawMaterialPartners = [
-    { name: "TATA", logo: "https://static.vecteezy.com/system/resources/previews/020/975/561/large_2x/tata-logo-tata-icon-transparent-free-png.png" },
-    { name: "JSW", logo: "https://e7.pngegg.com/pngimages/575/90/png-clipart-india-jsw-steel-ltd-jsw-group-logo-steel-blue-text.png" },
-    { name: "BHUSHAN Power & Steel", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZy6qeFtL3kafMWOHuWZZNCxpQINigqqsb3A&s" },
-    { name: "VSP", logo: "https://www.3blmedia.com/sites/default/files/styles/5x4_l/public/images/VSPGlobal_4C_3.png?h=532f109e" },
-    { name: "Arjas Steel Pvt. Ltd", logo: "https://premiersteels.in/wp-content/uploads/2020/03/suppliers-1.png" },
-    { name: "Jaiswal Nico", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrq_k3lBGlxEI4cQ2HVadObIP3lYPqxHt9Cw&s" },
-    { name: "Gerdau", logo: "https://logospng.org/wp-content/uploads/gerdau.png" },
-    { name: "RINL", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN-Kd_sEx2xPXWI0FQ_NLCe4Z6SO7MZMY3xw&s" }
+    { name: "TATA", logo: "https://static.vecteezy.com/system/resources/previews/020/975/561/large_2x/tata-logo-tata-icon-transparent-free-png.png", needsBlend: true },
+    { name: "JSW", logo: "https://e7.pngegg.com/pngimages/575/90/png-clipart-india-jsw-steel-ltd-jsw-group-logo-steel-blue-text.png", needsBlend: true },
+    { name: "BHUSHAN Power & Steel", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZy6qeFtL3kafMWOHuWZZNCxpQINigqqsb3A&s", needsBlend: true },
+    { name: "VSP", logo: "https://www.3blmedia.com/sites/default/files/styles/5x4_l/public/images/VSPGlobal_4C_3.png?h=532f109e", needsBlend: true },
+    { name: "Arjas Steel Pvt. Ltd", logo: "https://premiersteels.in/wp-content/uploads/2020/03/suppliers-1.png", needsBlend: true },
+    { name: "Jaiswal Nico", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrq_k3lBGlxEI4cQ2HVadObIP3lYPqxHt9Cw&s", needsBlend: true },
+    { name: "Gerdau", logo: "https://logospng.org/wp-content/uploads/gerdau.png", needsBlend: true },
+    { name: "RINL", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN-Kd_sEx2xPXWI0FQ_NLCe4Z6SO7MZMY3xw&s", needsBlend: true }
   ];
 
   /* ── Mobile Hero Slider State ── */
@@ -326,15 +326,19 @@ export default function Home() {
           </div>
           
           <div className="flex w-max animate-marquee py-12 border-y border-white/5 bg-white/5 backdrop-blur-sm">
-            {[...Array(3)].map((_, dupIdx) => (
+            {[...Array(4)].map((_, dupIdx) => (
               rawMaterialPartners.map((partner, idx) => (
                 <div key={`${dupIdx}-${idx}`} className="flex items-center px-12 md:px-20 group">
-                   <div className="h-12 w-auto md:h-16 relative">
+                   <div className="h-10 w-auto md:h-12 relative flex items-center">
                      {/* eslint-disable-next-line @next/next/no-img-element */}
                      <img 
                        src={partner.logo} 
                        alt={partner.name} 
-                       className="h-full w-auto object-contain grayscale brightness-200 opacity-60 group-hover:grayscale-0 group-hover:brightness-100 group-hover:opacity-100 transition-all duration-300"
+                       className={`h-full w-auto object-contain transition-all duration-300 ${
+                         partner.needsBlend 
+                         ? "grayscale invert brightness-[2] mix-blend-screen opacity-80 group-hover:opacity-100 group-hover:brightness-[2.5]" 
+                         : "grayscale brightness-200 opacity-60 group-hover:grayscale-0 group-hover:brightness-100 group-hover:opacity-100"
+                       }`}
                        loading="lazy" 
                      />
                    </div>
